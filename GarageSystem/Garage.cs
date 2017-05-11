@@ -10,17 +10,53 @@ namespace GarageSystem
     {
         private const int smallParkingLots = 100;
         private const int largeParkingLots = 20;
-        string[] smallVehicles = new string[smallParkingLots];
-        string[] largeVehicles = new string[largeParkingLots];
+        List<Vehicle> smallVehicles = new List<Vehicle>();
+        List<Vehicle> largeVehicles = new List<Vehicle>();
 
-        static void ParkCar()
+        #region Properties
+        public List<Vehicle> SmallVehicles
+        {
+            get { return smallVehicles; }
+            private set { }
+        }
+
+        public List<Vehicle> LargeVehicles
+        {
+            get { return largeVehicles; }
+            private set { }
+        }
+        #endregion
+
+        #region Method
+        static void ParkVehicle()
         {
 
         }
 
-        static void UnParkCar()
+        static void UnParkVehicle()
         {
 
         }
+
+        static void GetVehicleInfo()
+        {
+
+        }
+
+        static void GetAllVehicleInfo()
+        {
+
+        }
+
+        static void FindSingleVehicle()
+        {
+
+        }
+
+        static void FindMultipleVehicle
+        {
+
+        }
+        #endregion
     }
 }
