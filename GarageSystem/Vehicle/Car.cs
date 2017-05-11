@@ -9,5 +9,10 @@ namespace GarageSystem
     class Car : Vehicle
     {
         public string model { set; get; }
+
+        public Car()
+        {
+            Price = 65;
+        }
     }
 }

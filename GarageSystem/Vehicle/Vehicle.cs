@@ -5,9 +5,11 @@ namespace GarageSystem
     class Vehicle
     {
         public string RegNumber { set; get; } //This value should always be unique
-        public DateTime DateTime { set; get; }
-        public decimal Price { get; set; }
-
+        public decimal Price { set; get; }
+        public DateTime Date()
+        {
+            return DateTime.Now;
+        }
         public string GetObjectType() //Returns the object type so that we can get what type the Vehicle is
         {
             return this.GetType().ToString();

@@ -26,13 +26,10 @@ namespace GarageSystem
         }
         #endregion
          
-        #region Method
-        protected internal Vehicle ParkSmallVehicle(Vehicle vehicle)
+        #region Methods
+        protected internal void ParkSmallVehicle(Vehicle vehicle)
         {
-            if(vehicle != null)
-                smallVehicles.Add(vehicle);
-
-            return vehicle;
+            smallVehicles.Add(vehicle);
         }
 
         protected internal void ParkLargeVehicle(Vehicle vehicle)

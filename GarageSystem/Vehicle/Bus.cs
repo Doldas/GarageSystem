@@ -8,5 +8,9 @@ namespace GarageSystem
 {
     class Bus : Vehicle
     {
+        public Bus()
+        {
+            Price = 200;
+        }
     }
 }

@@ -8,5 +8,9 @@ namespace GarageSystem
 {
     class Motorcycle : Vehicle
     {
-    } 
+        public Motorcycle()
+        {
+            Price = 25;
+        }
+    }
 }
