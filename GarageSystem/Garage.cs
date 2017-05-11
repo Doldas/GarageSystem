@@ -8,63 +8,25 @@ namespace GarageSystem
 {
     class Garage
     {
-        
-        private List<Vehicle> smallVehicles = new List<Vehicle>();
-        private List<Vehicle> largeVehicles = new List<Vehicle>();
+        private List<Vehicle> vehicles = new List<Vehicle>();
 
         #region Properties
-        public List<Vehicle> SmallVehicles
+        public List<Vehicle> Veichles
         {
-            get { return smallVehicles; }
-            private set { }
-        }
-
-        public List<Vehicle> LargeVehicles
-        {
-            get { return largeVehicles; }
+            get { return vehicles; }
             private set { }
         }
         #endregion
          
         #region Methods
-        protected internal void ParkSmallVehicle(Vehicle vehicle)
+        protected internal void ParkVehicle(Vehicle vehicle)
         {
-            smallVehicles.Add(vehicle);
+            vehicles.Add(vehicle);
         }
 
-        protected internal void ParkLargeVehicle(Vehicle vehicle)
+        protected internal void UnParkVehicle(Vehicle vehicle)
         {
-            largeVehicles.Add(vehicle);
-        }
-
-        protected internal void UnParkSmallVehicle(Vehicle vehicle)
-        {
-            smallVehicles.Remove(vehicle);
-        }
-
-        protected internal void UnParkLargeVehicle(Vehicle vehicle)
-        {
-            largeVehicles.Remove(vehicle);
-        }
-
-        protected internal void GetVehicleInfo()
-        {
-
-        }
-
-        protected internal void GetAllVehicleInfo()
-        {
-
-        }
-
-        protected internal void FindSingleVehicle()
-        {
-
-        }
-
-        protected internal void FindMultipleVehicle
-        {
-
+            vehicles.Remove(vehicle);
         }
         #endregion
     }
