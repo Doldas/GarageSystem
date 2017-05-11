@@ -8,5 +8,5 @@ namespace GarageSystem
 {
     class Motorcycle : Vehicle
     {
-    }
+    } 
 }
