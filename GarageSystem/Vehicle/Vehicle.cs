@@ -9,7 +9,7 @@ namespace GarageSystem
         public decimal ParkingPrice { set; get; } //Price for parking
         public DateTime ParkingDate { set; get; } //Date variable for Parking
         #endregion
-
+            
         #region Constructor
         public Vehicle()//Constructor
         {
