@@ -6,6 +6,7 @@ namespace GarageSystem
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
