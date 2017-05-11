@@ -8,7 +8,7 @@ namespace GarageSystem
 
         public Car()
         {
-            ParkingPrice = 65; //Default price for Car
+            ParkingPrice = 65; //Default price for Car 
         }
     }
 }
