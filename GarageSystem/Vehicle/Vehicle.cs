@@ -2,8 +2,10 @@
 
 namespace GarageSystem
 {
+
     class Vehicle
     {
+
         #region Properties
         public string RegNumber { set; get; } //This value should always be unique
         public decimal ParkingPrice { set; get; } //Price for parking
@@ -38,6 +40,12 @@ namespace GarageSystem
             if (vehicleObject == null) return false;
             else return Equals(vehicleObject);
         }
+        public override int GetHashCode() //Return the HashCode from RegNumber
+        {
+            return this.RegNumber.GetHashCode();
+        }
         #endregion
+
     }
+
 }
