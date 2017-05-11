@@ -18,8 +18,6 @@ namespace GarageSystem
             vehicle.RegNumber = regNr;
             vehicle.ParkingDate = dateTime;
 
-            // Check that the vehicle object contains data and run the proper
-            // function
             if(vehicle != null && garage.Veichles.Count < parkingLots)
             {
                 garage.ParkVehicle(vehicle);
