@@ -6,8 +6,7 @@ namespace GarageSystem
     {
       public Truck()
       {
-          Price = 100;
+          ParkingPrice = 100; //Default price for a Truck
       }
-      
     }
 }
