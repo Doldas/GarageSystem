@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GarageSystem
 {
@@ -10,7 +6,7 @@ namespace GarageSystem
     {
         public Bus()
         {
-            Price = 200;
+            ParkingPrice = 200; //Default price for Bus
         }
     }
 }

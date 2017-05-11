@@ -5,8 +5,9 @@ namespace GarageSystem
     class Vehicle
     {
         public string RegNumber { set; get; } //This value should always be unique
-        public decimal Price { set; get; }
-        public DateTime Date()
+        public decimal ParkingPrice { set; get; } //Price for parking
+            
+        public DateTime Date() //Returns the current date on the system
         {
             return DateTime.Now;
         }
@@ -21,12 +22,7 @@ namespace GarageSystem
             if (this.RegNumber == other.RegNumber) return true;
             else return false;
         }
-        /// <summary>
-        /// Overriden from object, see previous method
-        /// </summary>
-        /// <param name="obj">object to compare to</param>
-        /// <returns>If the other object equals this object</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object obj) //Equals - Check if an object is of type Vehicle
         {
             if (obj == null) return false;
 

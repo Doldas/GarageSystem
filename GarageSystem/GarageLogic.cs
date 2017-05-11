@@ -17,7 +17,7 @@ namespace GarageSystem
             Vehicle vehicle = new Vehicle();
 
             vehicle.RegNumber = regNr;
-            vehicle.DateTime = dateTime;
+            //vehicle = dateTime;
 
             // Check that the vehicle object contains data and run the proper
             // function
