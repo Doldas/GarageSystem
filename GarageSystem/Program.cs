@@ -36,7 +36,11 @@ namespace GarageSystem
                                     
                                     break;
                                 case 3:
-
+                                    Console.WriteLine("Error code #9223");
+                                    Console.WriteLine("Error code description:");
+                                    Console.WriteLine("This is to enivormently-friendly.");
+                                    Console.WriteLine("And we don´t want horse shit in the garage.");
+                                    Console.ReadKey();
                                     break;
                                 case 0:
                                     Console.Clear();
