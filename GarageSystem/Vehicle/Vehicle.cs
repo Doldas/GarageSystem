@@ -2,22 +2,35 @@
 
 namespace GarageSystem
 {
-    class Vehicle : IEquatable<Vehicle>
+    class Vehicle
     {
+        
+        
+
         public string regNumber { set; get; } //This value should always be unique
 
         public string GetObjectType() //Returns the object type so that we can get what type the Vehicle is
         {
             return this.GetType().ToString();
         }
-        //Check if a vehicle is the same as another vehicle (Useful for checking if same vehicle already exists)
-        bool IEquatable<Vehicle>.Equals(Vehicle other)
+        public bool Equals(Vehicle other)
         {
-            return this.regNumber == other.regNumber;
+            if (other == null) return false;
+            if (this.regNumber == other.regNumber) return true;
+            else return false;
         }
-        override bool IEquatable<Vehicle>.Equals(object other) //Takes in an object for checking if it's same as this instance
+        /// <summary>
+        /// Overriden from object, see previous method
+        /// </summary>
+        /// <param name="obj">object to compare to</param>
+        /// <returns>If the other object equals this object</returns>
+        public override bool Equals(object obj)
         {
-            return other.GetType() == this.GetType();
+            if (obj == null) return false;
+
+            Vehicle vehicleObject = obj as Vehicle;
+            if (vehicleObject == null) return false;
+            else return Equals(vehicleObject);
         }
     }
 }
