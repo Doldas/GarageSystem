@@ -4,11 +4,12 @@ namespace GarageSystem
 {
     class Vehicle
     {
-        
-        
-
-        public string regNumber { set; get; } //This value should always be unique
-
+        public string RegNumber { set; get; } //This value should always be unique
+        public decimal Price { set; get; }
+        public DateTime Date()
+        {
+            return DateTime.Now;
+        }
         public string GetObjectType() //Returns the object type so that we can get what type the Vehicle is
         {
             return this.GetType().ToString();
@@ -16,7 +17,7 @@ namespace GarageSystem
         public bool Equals(Vehicle other)
         {
             if (other == null) return false;
-            if (this.regNumber == other.regNumber) return true;
+            if (this.RegNumber == other.RegNumber) return true;
             else return false;
         }
         /// <summary>

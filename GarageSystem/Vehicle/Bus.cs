@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace GarageSystem
 {
-    class Bus
+    class Bus : Vehicle
     {
+        public Bus()
+        {
+            Price = 200;
+        }
     }
 }
