@@ -6,7 +6,7 @@ namespace GarageSystem
     {
         public Motorcycle()
         {
-            ParkingPrice = 25; //Default proce for a Motorcycle
+            ParkingPrice = 25; //Default price for a Motorcycle
         }
     }
 }

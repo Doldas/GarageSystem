@@ -6,7 +6,7 @@ namespace GarageSystem
     {
         public Bus()
         {
-            ParkingPrice = 200; //Default proce for Bus
+            ParkingPrice = 200; //Default price for Bus
         }
     }
 }

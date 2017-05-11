@@ -6,7 +6,7 @@ namespace GarageSystem
     {
         public string RegNumber { set; get; } //This value should always be unique
         public decimal ParkingPrice { set; get; } //Price for parking
-                
+            
         public DateTime Date() //Returns the current date on the system
         {
             return DateTime.Now;
