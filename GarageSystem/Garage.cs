@@ -28,12 +28,22 @@ namespace GarageSystem
         #endregion
 
         #region Method
-        static void ParkVehicle()
+        static void ParkSmallVehicle()
         {
 
         }
 
-        static void UnParkVehicle()
+        static void ParkLargeVehicle()
+        {
+
+        }
+
+        static void UnParkSmallVehicle()
+        {
+
+        }
+
+        static void UnParkLargeVehicle()
         {
 
         }
