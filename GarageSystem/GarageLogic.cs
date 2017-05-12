@@ -24,6 +24,10 @@ namespace GarageSystem
         public bool ParkVehicle(string regNr, string vehicleType)
         {
             bool result = false;
+
+            if(regNr.Length != 6)
+                return result;
+
             vehicleType = vehicleType.ToLower();
 
             switch(vehicleType)
