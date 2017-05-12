@@ -38,13 +38,13 @@ namespace GarageSystem
         /// <summary>
         /// List items unpark menu.
         /// </summary>
-        internal static void ShowUnparkMenu()
+       /* internal static void ShowUnparkMenu()
         {
             Console.WriteLine("### Unpark vehicle ###");
             Console.WriteLine("1) Unpark small vehicle");
             //Console.WriteLine("2) Unpark large vehicle");
             Console.WriteLine("0) Back to Main");
-        }
+        }*/
         /// <summary>
         /// Search item in admin  menu.
         /// </summary>
