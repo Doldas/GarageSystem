@@ -12,6 +12,7 @@ namespace GarageSystem
         #region Constructor
         public Bus()
         {
+            pSeats = 49; //The default value for amount of passanger seats
             ParkingPrice = 200; //Default price for Bus
         }
         #endregion
