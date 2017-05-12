@@ -17,9 +17,9 @@ namespace GarageSystem
             Console.WriteLine("1) Park vehicle");
             Console.WriteLine("2) Unpark vehicle");
             Console.WriteLine("3) View admin");
-
             Console.WriteLine("0) Exit");
         }
+
 
         /// <summary>
         /// List items park menu.
@@ -27,9 +27,11 @@ namespace GarageSystem
         internal static void ShowParkMenu()
         {
             Console.WriteLine("### Park vehicle ###");
-            Console.WriteLine("1) Park a small vehicle");
-            Console.WriteLine("2) Park a large vehicle");
-            Console.WriteLine("3) Park a horse-and-buggy ");
+            Console.WriteLine("1) Park a motorcycle");
+            Console.WriteLine("2) Park a car");
+            Console.WriteLine("3) Park a bus");
+            Console.WriteLine("4) Park a truck");
+            Console.WriteLine("5) Park a horse-and-buggy ");
             Console.WriteLine("0) Back to Main");
         }
 
@@ -40,7 +42,7 @@ namespace GarageSystem
         {
             Console.WriteLine("### Unpark vehicle ###");
             Console.WriteLine("1) Unpark small vehicle");
-            Console.WriteLine("2) Unpark large vehicle");
+            //Console.WriteLine("2) Unpark large vehicle");
             Console.WriteLine("0) Back to Main");
         }
         /// <summary>
