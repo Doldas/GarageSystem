@@ -177,7 +177,7 @@ namespace GarageSystem
                                     {
                                         Console.WriteLine(v);
 
-                                    }
+                                    };
 
                                     Console.ReadKey();
                                     break;
