@@ -161,7 +161,7 @@ namespace GarageSystem
 
             foreach(Vehicle v in garage.Veichles)
             {
-                vehicles.Add(string.Format("{0,-10}{1,-10}", v.RegNumber, v.ParkingDate));
+                vehicles.Add(string.Format("{0,-10}{1,-10}", v.RegNumber, (v.ParkingDate.ToShortDateString() + " " + v.ParkingDate.ToShortTimeString())));
             }
 
             return vehicles;
