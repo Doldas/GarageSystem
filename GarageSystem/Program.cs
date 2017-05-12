@@ -12,10 +12,10 @@ namespace GarageSystem
 
 
             bool showMainMenu = true;
-
             // Main menu
-            do
+            while(true)
             {
+                Console.Clear();
                 Menu.ShowMenu();
                 Console.Write("Value $: ");
                 int choice = Menu.GetMainMenuChoice();
@@ -28,6 +28,7 @@ namespace GarageSystem
                         // Show Park menu
                         do
                         {
+                            Console.Clear();
                             Menu.ShowParkMenu();
                             Console.Write("$: ");
                             choice = Menu.GetListMenuChoice();
@@ -164,7 +165,7 @@ namespace GarageSystem
                     default:
                         break;
                 }
-            } while (showMainMenu != false);
+            }
         }
     }
 }
