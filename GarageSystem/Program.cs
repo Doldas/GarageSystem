@@ -119,7 +119,6 @@ namespace GarageSystem
                                     foreach (string v in garage.GetGarageInfo())
                                     {
                                         Console.WriteLine(v);
-
                                     }
                                     break;
                                 case 2:
@@ -130,7 +129,10 @@ namespace GarageSystem
                                     Console.WriteLine("You want to serch after a vehicle /n");
                                     Console.WriteLine("Please type regestration number?/n");
                                     regNr = Console.ReadLine();
-
+                                    
+                                    //Testing - Change this
+                                    Console.WriteLine(garage.FindVehicleByRegNr(regNr).GetObjectType()); //Get the vehicle type
+                                    Console.ReadKey();
                                     //foreach (Book.Book b in GarageLogic.())
                                     //{
                                     //    Console.WriteLine(b.Title);
@@ -139,18 +141,34 @@ namespace GarageSystem
                                     break;
                                 case 4:
                                     //Search for vehicle by type 
+                                    //Search for specific vehicle
+                                    Console.WriteLine("You want to serch after a vehicles /n");
+                                    Console.WriteLine("Please type in the vehicle type (Car,Motorcycle...)?/n");
+                                    regNr = Console.ReadLine();
+
+                                    //Testing - Change this
+                                    foreach (Vehicle v in garage.FindMultipleVehiclesByType(regNr))
+                                    {
+                                        Console.WriteLine(garage.GetVehicleInfo(v.RegNumber)+"\n");
+                                    }
+                                    
+                                    Console.ReadKey();
 
                                     break;
                                 case 5:
                                     // Search for vehicle by date parked
  
                                     Console.WriteLine("You want to unpark a vehicle/n");
-                                    Console.WriteLine("Please type regestration number?/n");
+                                    Console.WriteLine("Please type in the date?/n");
                                     regNr = Console.ReadLine();
-                                        
+                                   
+                                    foreach (Vehicle v in garage.FindMultipleVehiclesByDate(regNr))
+                                    {
+                                        Console.WriteLine(garage.GetVehicleInfo(v.RegNumber) + "\n");
+                                    }
+                                    Console.ReadKey();
                                     break;
                                 case 0:
-                                    Console.Clear();
                                     showSubMenu = false;
                                     break;
                                 default:

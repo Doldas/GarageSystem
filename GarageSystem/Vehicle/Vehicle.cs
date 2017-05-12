@@ -22,7 +22,7 @@ namespace GarageSystem
         #region Methods
         public string GetObjectType() //Returns the object type so that we can get what type the Vehicle is
         {
-            return this.GetType().ToString();
+            return this.GetType().ToString().Remove(0,13);
         }
         
         public bool Equals(Vehicle other) //Equals - check if an instance of Vehicle is the same as this instance
