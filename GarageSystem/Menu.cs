@@ -38,13 +38,13 @@ namespace GarageSystem
         /// <summary>
         /// List items unpark menu.
         /// </summary>
-       /* internal static void ShowUnparkMenu()
-        {
-            Console.WriteLine("### Unpark vehicle ###");
-            Console.WriteLine("1) Unpark small vehicle");
-            //Console.WriteLine("2) Unpark large vehicle");
-            Console.WriteLine("0) Back to Main");
-        }*/
+        /* internal static void ShowUnparkMenu()
+         {
+             Console.WriteLine("### Unpark vehicle ###");
+             Console.WriteLine("1) Unpark small vehicle");
+             //Console.WriteLine("2) Unpark large vehicle");
+             Console.WriteLine("0) Back to Main");
+         }*/
         /// <summary>
         /// Search item in admin  menu.
         /// </summary>
@@ -66,15 +66,14 @@ namespace GarageSystem
         internal static int GetMainMenuChoice()
         {
             string input = Console.ReadLine();
-            int choice=-1;
+            int choice = -1;
             try
             {
                 choice = int.Parse(input);
             }
             catch
             {
-                Console.WriteLine("Please enter a valid choice.\nPress a key to continue");
-                Console.ReadKey();
+                Console.WriteLine("Please enter a valid choice.");
             }
             /* Returns 0 if false - 0=Exit = Problem
             if (!int.TryParse(input, out choice) && choice < 0 || choice > 4)
@@ -92,12 +91,16 @@ namespace GarageSystem
         internal static int GetListMenuChoice()
         {
             string input = Console.ReadLine();
-            int choice;
-
-            if (!int.TryParse(input, out choice) && choice < 0 || choice > 5)
+            int choice = -1;
+            try
             {
-                Console.WriteLine("Please enter a valid choice.\n");
+                choice = int.Parse(input);
             }
+            catch
+            {
+                Console.WriteLine("Please enter a valid choice.");
+            }
+
             return choice;
         }
 
@@ -108,23 +111,51 @@ namespace GarageSystem
         internal static int GetSearchMenuChoice()
         {
             string input = Console.ReadLine();
-            int choice;
-
-            if (!int.TryParse(input, out choice) && choice < 0 || choice > 5)
+            int choice = -1;
+            try
             {
-                Console.WriteLine("Please enter a valid choice.\n");
+                choice = int.Parse(input);
             }
+            catch
+            {
+                Console.WriteLine("Please enter a valid choice.");
+            }
+
             return choice;
         }
 
         /// <summary>
         /// Print product header.
         /// </summary>
-       /* internal static void PrintHeader()
+        /* internal static void PrintHeader()
+         {
+             Console.WriteLine(string.Format("{0,-6}{1,-20}{2,-12}{3,-13}{4,-10}",
+                                             "Part#", "Name", "Category", "Price", "Amount"));
+             Console.WriteLine("---------------------------------------------------------");
+         }*/
+
+        internal static int GetParkMenuChoice()
         {
-            Console.WriteLine(string.Format("{0,-6}{1,-20}{2,-12}{3,-13}{4,-10}",
-                                            "Part#", "Name", "Category", "Price", "Amount"));
-            Console.WriteLine("---------------------------------------------------------");
-        }*/
+            string input = Console.ReadLine();
+            int choice = -1;
+
+            {
+                try
+                {
+                    choice = int.Parse(input);
+
+                    if(choice < 0 || choice > 5)
+                        Console.WriteLine("Please enter a valid choice.");
+                    Console.WriteLine();
+                }
+                catch
+                {
+                    Console.WriteLine("Please enter a valid choice.");
+                    Console.WriteLine();
+                }
+            }
+
+            return choice;
+        }
     }
 }
