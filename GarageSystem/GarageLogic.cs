@@ -21,8 +21,9 @@ namespace GarageSystem
         /// </summary>
         /// <param name="regNr">Registration number for the vehicle to park.</param>
         /// <returns>Parked vehicle object.</returns>
-        public Vehicle ParkVehicle(string regNr, string vehicleType)
+        public bool ParkVehicle(string regNr, string vehicleType)
         {
+            bool result = false;
             vehicleType = vehicleType.ToLower();
 
             switch(vehicleType)
@@ -33,7 +34,7 @@ namespace GarageSystem
                     if(car != null && garage.Veichles.Count < parkingLots)
                     {
                         garage.ParkVehicle(car);
-                        return car;
+                        result = true;
                     }
                     break;
                 case "mc":
@@ -42,7 +43,7 @@ namespace GarageSystem
                     if(mc != null && garage.Veichles.Count < parkingLots)
                     {
                         garage.ParkVehicle(mc);
-                        return mc;
+                        result = true;
                     }
                     break;
                 case "bus":
@@ -51,7 +52,7 @@ namespace GarageSystem
                     if(bus != null && garage.Veichles.Count < parkingLots)
                     {
                         garage.ParkVehicle(bus);
-                        return bus;
+                        result = true;
                     }
                     break;
                 case "truck":
@@ -60,14 +61,15 @@ namespace GarageSystem
                     if(truck != null && garage.Veichles.Count < parkingLots)
                     {
                         garage.ParkVehicle(truck);
-                        return truck;
+                        result = true;
                     }
                     break;
                 default:
-                    return null;
+                    result = false;
+                    break;
             }
 
-            return null;
+            return result;
         }
 
         /// <summary>

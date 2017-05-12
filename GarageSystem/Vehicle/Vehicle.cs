@@ -46,6 +46,12 @@ namespace GarageSystem
         }
         #endregion
 
+        #region Overrides
+        public override string ToString()
+        {
+            return string.Format("{0,-10}{1,-10}", RegNumber, ParkingDate);
+        }
+        #endregion
     }
 
 }
