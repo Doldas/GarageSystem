@@ -23,6 +23,8 @@ namespace GarageSystem
         /// <returns>Parked vehicle object.</returns>
         public Vehicle ParkVehicle(string regNr, string vehicleType)
         {
+            vehicleType = vehicleType.ToLower();
+
             switch(vehicleType)
             {
                 case "car":
