@@ -8,8 +8,12 @@ namespace GarageSystem
 {
     class GarageLogic
     {
+        #region Values
+        // Size of garage.
         private const int parkingLots = 100;
+        // Instance of garage = a new garage.
         Garage garage = new Garage();
+        #endregion
 
         #region Methods
         /// <summary>
