@@ -47,7 +47,7 @@ namespace GarageSystem
                                     regNr = Console.ReadLine();
 
                                     if (!garage.ParkVehicle(regNr, "mc"))
-                                        Console.WriteLine("{0} was not parked.", regNr);
+                                        Console.WriteLine("Vehicle was not parked.");
                                     else
                                         Console.WriteLine("Your motorcycle with registration {0} is now parked.", regNr);
                                     
@@ -130,7 +130,6 @@ namespace GarageSystem
                                     foreach (string v in garage.GetGarageInfo())
                                     {
                                         Console.WriteLine(v);
-
                                     }
 
                                     break;
@@ -182,7 +181,6 @@ namespace GarageSystem
                                     Console.ReadKey();
                                     break;
                                 case 0:
-                                    Console.Clear();
                                     showSubMenu = false;
                                     break;
                                 default:
