@@ -71,7 +71,7 @@ namespace GarageSystem
             {
                 choice = int.Parse(input);
             }
-            catch(Exception)
+            catch
             {
                 Console.WriteLine("Please enter a valid choice.\nPress a key to continue");
                 Console.ReadKey();
