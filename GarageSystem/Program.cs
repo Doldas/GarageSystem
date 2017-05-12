@@ -46,7 +46,7 @@ namespace GarageSystem
                                     string regNr = Console.ReadLine();
                                     garage.ParkVehicle(regNr, "mc");
 
-                                    if (Pdd != null)
+                                    if ( Pdd != null)
                                     {
                                         Console.WriteLine("Your motorcycle is now parked.");
                                     }
