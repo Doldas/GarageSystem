@@ -21,19 +21,51 @@ namespace GarageSystem
         /// </summary>
         /// <param name="regNr">Registration number for the vehicle to park.</param>
         /// <returns>Parked vehicle object.</returns>
-        public Vehicle ParkVehicle(string regNr)
+        public Vehicle ParkVehicle(string regNr, string vehicleType)
         {
-            Vehicle vehicle = new Vehicle();
-
-            vehicle.RegNumber = regNr;
-
-            if(vehicle != null && garage.Veichles.Count < parkingLots)
+            switch(vehicleType)
             {
-                garage.ParkVehicle(vehicle);
-                return vehicle;
+                case "car":
+                    Car car = new Car();
+                    car.RegNumber = regNr;
+                    if(car != null && garage.Veichles.Count < parkingLots)
+                    {
+                        garage.ParkVehicle(car);
+                        return car;
+                    }
+                    break;
+                case "mc":
+                    Motorcycle mc = new Motorcycle();
+                    mc.RegNumber = regNr;
+                    if(mc != null && garage.Veichles.Count < parkingLots)
+                    {
+                        garage.ParkVehicle(mc);
+                        return mc;
+                    }
+                    break;
+                case "bus":
+                    Bus bus = new Bus();
+                    bus.RegNumber = regNr;
+                    if(bus != null && garage.Veichles.Count < parkingLots)
+                    {
+                        garage.ParkVehicle(bus);
+                        return bus;
+                    }
+                    break;
+                case "truck":
+                    Truck truck = new Truck();
+                    truck.RegNumber = regNr;
+                    if(truck != null && garage.Veichles.Count < parkingLots)
+                    {
+                        garage.ParkVehicle(truck);
+                        return truck;
+                    }
+                    break;
+                default:
+                    return null;
             }
 
-            return vehicle;
+            return null;
         }
 
         /// <summary>
