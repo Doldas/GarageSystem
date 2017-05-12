@@ -7,6 +7,10 @@ namespace GarageSystem
         static void Main(string[] args)
         {
             GarageLogic garage = new GarageLogic();
+            
+    
+
+
             bool showMainMenu = true;
             // Main menu
             do
@@ -21,7 +25,7 @@ namespace GarageSystem
                 switch(choice)
                 {
                     case 1:
-                        // List sub menu
+                        // Show Park menu
                         do
                         {
                             Console.Clear();
@@ -32,13 +36,54 @@ namespace GarageSystem
                             switch(choice)
                             {
                                 case 1:
+                                    Console.WriteLine("You are parking a motorcycle!/n");
+                                    Console.WriteLine("Please type Regestration number?/n");
+                                    string regNr = Console.ReadLine();
+                                    garage.ParkVehicle(regNr, "mc");
 
+                                    if (mc != null)
+                                    {
+                                        Console.WriteLine("Your motorcycle is now parked.");
+                                    }
+                                    
                                     break;
                                 case 2:
+                                    Console.WriteLine("You are parking a car!/n");
+                                    Console.WriteLine("Please type Regestration number?/n");
+                                    regNr = Console.ReadLine();
+                                    garage.ParkVehicle(regNr, "car");
 
+                                    if (car != null)
+                                    {
+                                        Console.WriteLine("Your car is now parked.");
+                                    }
+                                    
                                     break;
                                 case 3:
+                                    Console.WriteLine("You are parking a bus!/n");
+                                    Console.WriteLine("Please type Regestration number?/n");
+                                    regNr = Console.ReadLine();
+                                    garage.ParkVehicle(regNr, "bus");
+                                   
+                                    if (car != null)
+                                    {
+                                        Console.WriteLine("Your bus is now parked.");
+                                    }
 
+                                    break;
+                                case 4:
+                                    Console.WriteLine("You are parking a truck!/n");
+                                    Console.WriteLine("Please type Regestration number?/n");
+                                    regNr = Console.ReadLine();
+                                    garage.ParkVehicle(regNr, "Truck");
+
+                                    if (car != null)
+                                    {
+                                        Console.WriteLine("Your truck is now parked.");
+                                    }
+
+                                    break;
+                                case 5:
                                     Console.WriteLine("Error code #9223");
                                     Console.WriteLine("Error code description:");
                                     Console.WriteLine("This is to enivormently-friendly.");
@@ -52,11 +97,11 @@ namespace GarageSystem
                                 default:
                                     break;
                             }
-                        } while(showSubMenu != false);
-                        break; // List sub menu end
+                        } while (showSubMenu != false);
+                        break; // List park menu end
                     case 2:
-                        // Search sub menu
-                        do
+                        // Show unpark menu
+                        /*do
                         {
                             Menu.ShowUnparkMenu();
                             Console.Write("$: ");
@@ -65,10 +110,10 @@ namespace GarageSystem
                             switch(choice)
                             {
                                 case 1:
-
+                                    
                                     break;
                                 case 2:
-
+                                    
                                     break;
                                 case 0:
                                     Console.Clear();
@@ -77,8 +122,8 @@ namespace GarageSystem
                                 default:
                                     break;
                             }
-                        } while(showSubMenu != false);
-                        break; // Search sub menu end
+                        } while (showSubMenu != false);*/
+                        break; // Search unpark menu end
                     case 3:
                         do
                         {
