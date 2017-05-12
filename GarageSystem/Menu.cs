@@ -64,12 +64,22 @@ namespace GarageSystem
         internal static int GetMainMenuChoice()
         {
             string input = Console.ReadLine();
-            int choice;
-
+            int choice=-1;
+            try
+            {
+                choice = int.Parse(input);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Please enter a valid choice.\nPress a key to continue");
+                Console.ReadKey();
+            }
+            /* Returns 0 if false - 0=Exit = Problem
             if (!int.TryParse(input, out choice) && choice < 0 || choice > 4)
             {
                 Console.WriteLine("Please enter a valid choice.\n");
             }
+             * */
             return choice;
         }
 
