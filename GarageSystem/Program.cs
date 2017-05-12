@@ -7,7 +7,7 @@ namespace GarageSystem
         static void Main(string[] args)
         {
             GarageLogic garage = new GarageLogic();
-
+            
             garage.ParkVehicle("123abc", "car");
             garage.ParkVehicle("456def", "mc");
             garage.ParkVehicle("321cba", "truck");
@@ -46,7 +46,7 @@ namespace GarageSystem
                                     string regNr = Console.ReadLine();
                                     garage.ParkVehicle(regNr, "mc");
 
-                                    if (mc != null)
+                                    if (Pdd != null)
                                     {
                                         Console.WriteLine("Your motorcycle is now parked.");
                                     }
@@ -105,6 +105,16 @@ namespace GarageSystem
                         } while (showSubMenu != false);
                         break; // List park menu end
                     case 2:
+                        Console.WriteLine("You want to unpark a vehicle/n");
+                        Console.WriteLine("Please type regestration number?/n");
+                        string regNr = Console.ReadLine();
+                        garage.ParkVehicle(regNr, "Truck");
+
+                        if (car != null)
+                        {
+                            Console.WriteLine("Your truck is now parked.");
+                        }
+
                         // Show unpark menu
                         /*do
                         {
@@ -145,12 +155,29 @@ namespace GarageSystem
 
                                     break;
                                 case 3:
+                                    Console.WriteLine("You want to serch after a vehicle /n");
+                                    Console.WriteLine("Please type regestration number?/n");
+                                    regNr = Console.ReadLine();
 
+                                    foreach (Book.Book b in GarageLogic.())
+                                    {
+                                        Console.WriteLine(b.Title);
+
+                                    }
                                     break;
                                 case 4:
 
                                     break;
                                 case 5:
+                                    Console.WriteLine("You want to unpark a vehicle/n");
+                                    Console.WriteLine("Please type regestration number?/n");
+                                    regNr = Console.ReadLine();
+                                        
+                                    foreach (Vehicle.ve v in GarageLogic.fin())
+                                    {
+                                        Console.WriteLine(v.Title);
+
+                                    }
 
                                     break;
                                 case 0:
