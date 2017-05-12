@@ -8,7 +8,9 @@ namespace GarageSystem
 {
     class Garage
     {
+        #region Values
         private List<Vehicle> vehicles = new List<Vehicle>();
+        #endregion
 
         #region Properties
         public List<Vehicle> Veichles
@@ -19,11 +21,19 @@ namespace GarageSystem
         #endregion
          
         #region Methods
+        /// <summary>
+        /// Add a vehicle to the garage.
+        /// </summary>
+        /// <param name="vehicle">Vehicle object to add.</param>
         protected internal void ParkVehicle(Vehicle vehicle)
         {
             vehicles.Add(vehicle);
         }
 
+        /// <summary>
+        /// Remove a vehicle from the garage.
+        /// </summary>
+        /// <param name="vehicle">Vehicle to unpark.</param>
         protected internal void UnParkVehicle(Vehicle vehicle)
         {
             vehicles.Remove(vehicle);
