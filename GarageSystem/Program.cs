@@ -9,7 +9,7 @@ namespace GarageSystem
             GarageLogic garage = new GarageLogic();
             bool showMainMenu = true;
             // Main menu
-            while(true)
+            do
             {
                 Console.Clear();
                 Menu.ShowMenu();
@@ -18,7 +18,7 @@ namespace GarageSystem
                 // Show sub menu unless false
                 bool showSubMenu = true;
 
-                switch (choice)
+                switch(choice)
                 {
                     case 1:
                         // List sub menu
@@ -29,16 +29,16 @@ namespace GarageSystem
                             Console.Write("$: ");
                             choice = Menu.GetListMenuChoice();
 
-                            switch (choice)
+                            switch(choice)
                             {
                                 case 1:
-                                    
+
                                     break;
                                 case 2:
-                                    
+
                                     break;
                                 case 3:
-                                   
+
                                     Console.WriteLine("Error code #9223");
                                     Console.WriteLine("Error code description:");
                                     Console.WriteLine("This is to enivormently-friendly.");
@@ -52,7 +52,7 @@ namespace GarageSystem
                                 default:
                                     break;
                             }
-                        } while (showSubMenu != false);
+                        } while(showSubMenu != false);
                         break; // List sub menu end
                     case 2:
                         // Search sub menu
@@ -62,13 +62,13 @@ namespace GarageSystem
                             Console.Write("$: ");
                             choice = Menu.GetSearchMenuChoice();
 
-                            switch (choice)
+                            switch(choice)
                             {
                                 case 1:
-                                    
+
                                     break;
                                 case 2:
-                                    
+
                                     break;
                                 case 0:
                                     Console.Clear();
@@ -77,7 +77,7 @@ namespace GarageSystem
                                 default:
                                     break;
                             }
-                        } while (showSubMenu != false);
+                        } while(showSubMenu != false);
                         break; // Search sub menu end
                     case 3:
                         do
@@ -86,7 +86,7 @@ namespace GarageSystem
                             Console.Write("$: ");
                             choice = Menu.GetSearchMenuChoice();
 
-                            switch (choice)
+                            switch(choice)
                             {
                                 case 1:
 
@@ -110,7 +110,7 @@ namespace GarageSystem
                                 default:
                                     break;
                             }
-                        } while (showSubMenu != false);
+                        } while(showSubMenu != false);
                         break;
                     case 0:
                         Console.WriteLine("Press any key to exit application.");
@@ -120,7 +120,7 @@ namespace GarageSystem
                     default:
                         break;
                 }
-            }
+            } while(showMainMenu != false);
         }
     }
 }
