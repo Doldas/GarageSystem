@@ -77,17 +77,18 @@ namespace GarageSystem
         /// </summary>
         /// <param name="regNr">Registration number for the vehicle to unpark.</param>
         /// <returns>Unparked vehicle object.</returns>
-        public Vehicle UnParkVehicle(string regNr)
+        protected internal bool UnParkVehicle(string regNr)
         {
+            bool result = false;
             Vehicle vehicle = garage.Veichles.FirstOrDefault(v => v.RegNumber == regNr);
 
             if(vehicle != null)
             {
                 garage.Veichles.Remove(vehicle);
-                return vehicle;
+                result = true;
             }
 
-            return vehicle;
+            return result;
         }
 
         /// <summary>
