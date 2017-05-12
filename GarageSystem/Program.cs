@@ -23,6 +23,7 @@ namespace GarageSystem
                         // List sub menu
                         do
                         {
+                            Console.Clear();
                             Menu.ShowParkMenu();
                             Console.Write("$: ");
                             choice = Menu.GetListMenuChoice();
@@ -30,12 +31,13 @@ namespace GarageSystem
                             switch (choice)
                             {
                                 case 1:
-    
+                                    
                                     break;
                                 case 2:
                                     
                                     break;
                                 case 3:
+                                   
                                     Console.WriteLine("Error code #9223");
                                     Console.WriteLine("Error code description:");
                                     Console.WriteLine("This is to enivormently-friendly.");
