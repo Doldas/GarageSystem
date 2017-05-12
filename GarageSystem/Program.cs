@@ -154,15 +154,32 @@ namespace GarageSystem
                                     break;
                                 case 4:
                                     //Search for vehicle by type 
+                                    Console.WriteLine("You want to search after a vehicle by type /n");
+                                    Console.WriteLine("Please use th following types mc, car, bus or truck?/n");
+                                    string type = Console.ReadLine();
+
+                                    foreach (Vehicle v in garage.FindMultipleVehiclesByType(type))
+                                    {
+                                        Console.WriteLine(v);
+
+                                    }
+
+                                    Console.ReadKey();
 
                                     break;
                                 case 5:
                                     // Search for vehicle by date parked
- 
-                                    Console.WriteLine("You want to unpark a vehicle/n");
-                                    Console.WriteLine("Please type regestration number?/n");
-                                    regNr = Console.ReadLine();
-                                        
+                                    Console.WriteLine("You want to search after a vehicle by date /n");
+                                    Console.WriteLine("Please type a date ?/n");
+                                    string parkedDate = Console.ReadLine();
+
+                                    foreach (Vehicle v in garage.FindMultipleVehiclesByDate(parkedDate))
+                                    {
+                                        Console.WriteLine(v);
+
+                                    }
+
+                                    Console.ReadKey();
                                     break;
                                 case 0:
                                     Console.Clear();
