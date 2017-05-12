@@ -10,7 +10,7 @@ namespace GarageSystem
   
             bool showMainMenu = true;
             // Main menu
-            while(true)
+            do
             {
                 Console.Clear();
                 Menu.ShowMenu();
@@ -19,7 +19,7 @@ namespace GarageSystem
                 // Show sub menu unless false
                 bool showSubMenu = true;
 
-                switch (choice)
+                switch(choice)
                 {
                     case 1:
                         // Show Park menu
@@ -30,7 +30,7 @@ namespace GarageSystem
                             Console.Write("$: ");
                             choice = Menu.GetListMenuChoice();
 
-                            switch (choice)
+                            switch(choice)
                             {
                                 case 1:
                                     Console.WriteLine("You are parking a motorcycle!/n");
@@ -42,7 +42,7 @@ namespace GarageSystem
                                     {
                                         Console.WriteLine("Your motorcycle is now parked.");
                                     }
-
+                                    
                                     break;
                                 case 2:
                                     Console.WriteLine("You are parking a car!/n");
@@ -54,14 +54,14 @@ namespace GarageSystem
                                     {
                                         Console.WriteLine("Your car is now parked.");
                                     }
-
+                                    
                                     break;
                                 case 3:
                                     Console.WriteLine("You are parking a bus!/n");
                                     Console.WriteLine("Please type Regestration number?/n");
                                     regNr = Console.ReadLine();
                                     garage.ParkVehicle(regNr, "bus");
-
+                                   
                                     if (car != null)
                                     {
                                         Console.WriteLine("Your bus is now parked.");
@@ -114,7 +114,7 @@ namespace GarageSystem
                             Console.Write("$: ");
                             choice = Menu.GetSearchMenuChoice();
 
-                            switch (choice)
+                            switch(choice)
                             {
                                 case 1:
                                     
@@ -138,7 +138,7 @@ namespace GarageSystem
                             Console.Write("$: ");
                             choice = Menu.GetSearchMenuChoice();
 
-                            switch (choice)
+                            switch(choice)
                             {
                                 case 1:
 
@@ -179,7 +179,7 @@ namespace GarageSystem
                                 default:
                                     break;
                             }
-                        } while (showSubMenu != false);
+                        } while(showSubMenu != false);
                         break;
                     case 0:
                         Console.WriteLine("Press any key to exit application.");
@@ -189,7 +189,7 @@ namespace GarageSystem
                     default:
                         break;
                 }
-            }
+            } while(showMainMenu != false);
         }
     }
 }
