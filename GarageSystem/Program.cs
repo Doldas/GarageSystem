@@ -12,9 +12,6 @@ namespace GarageSystem
             garage.ParkVehicle("456def", "mc");
             garage.ParkVehicle("321cba", "truck");
             garage.ParkVehicle("654fed", "bus");
-            
-    
-
 
             bool showMainMenu = true;
             // Main menu
@@ -130,12 +127,6 @@ namespace GarageSystem
                                     Console.WriteLine("You want to serch after a vehicle /n");
                                     Console.WriteLine("Please type regestration number?/n");
                                     regNr = Console.ReadLine();
-
-                                    //foreach (Book.Book b in GarageLogic.())
-                                    //{
-                                    //    Console.WriteLine(b.Title);
-
-                                    //}
                                     break;
                                 case 4:
                                     //Search for vehicle by type 
@@ -143,10 +134,11 @@ namespace GarageSystem
                                     break;
                                 case 5:
                                     // Search for vehicle by date parked
- 
-                                    Console.WriteLine("You want to unpark a vehicle/n");
-                                    Console.WriteLine("Please type regestration number?/n");
-                                    regNr = Console.ReadLine();
+                                    Console.Write("Input numerical day to find vehicles for: ");
+                                    string day = Console.ReadLine();
+
+                                    foreach(Vehicle v in garage.FindMultipleVehiclesByDate(day))
+                                        Console.WriteLine(v);
                                         
                                     break;
                                 case 0:
