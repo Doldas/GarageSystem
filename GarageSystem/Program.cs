@@ -158,7 +158,7 @@ namespace GarageSystem
                                 case 5:
                                     // Search for vehicle by date parked
  
-                                    Console.WriteLine("You want to unpark a vehicle/n");
+                                    Console.WriteLine("You want to search vehicles by date/n");
                                     Console.WriteLine("Please type in the date?/n");
                                     regNr = Console.ReadLine();
                                    
