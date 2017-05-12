@@ -50,7 +50,7 @@ namespace GarageSystem
                                         Console.WriteLine("{0} was not parked.", regNr);
                                     else
                                         Console.WriteLine("Your motorcycle with registration {0} is now parked.", regNr);
-
+                                    
                                     // Debug
                                     foreach (string v in garage.GetGarageInfo())
                                         Console.WriteLine(v);
@@ -130,7 +130,7 @@ namespace GarageSystem
                                     foreach (string v in garage.GetGarageInfo())
                                     {
                                         Console.WriteLine(v);
-                                        
+
                                     }
 
                                     break;
