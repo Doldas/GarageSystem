@@ -18,6 +18,7 @@ namespace GarageSystem
                 int choice = Menu.GetMainMenuChoice();
                 // Show sub menu unless false
                 bool showSubMenu = true;
+                string regNr;
 
                 switch(choice)
                 {
@@ -33,16 +34,19 @@ namespace GarageSystem
                             switch(choice)
                             {
                                 case 1:
-                                    Console.WriteLine("You are parking a motorcycle!/n");
-                                    Console.WriteLine("Please type Regestration number?/n");
-                                    string regNr = Console.ReadLine();
-                                    garage.ParkVehicle(regNr, "mc");
+                                    Console.WriteLine("You are parking a motorcycle!");
+                                    Console.Write("Please type Regestration number: ");
+                                    regNr = Console.ReadLine();
 
-                                    if (Pdd != null)
-                                    {
-                                        Console.WriteLine("Your motorcycle is now parked.");
-                                    }
-                                    
+                                    if (!garage.ParkVehicle(regNr, "mc"))
+                                        Console.WriteLine("{0} was not parked.", regNr);
+                                    else
+                                        Console.WriteLine("Your motorcycle with registration {0} is now parked.", regNr);
+
+                                    // Debug
+                                    foreach (string v in garage.GetGarageInfo())
+                                        Console.WriteLine(v);
+                                    Console.ReadKey();
                                     break;
                                 case 2:
                                     Console.WriteLine("You are parking a car!/n");
@@ -50,11 +54,11 @@ namespace GarageSystem
                                     regNr = Console.ReadLine();
                                     garage.ParkVehicle(regNr, "car");
 
-                                    if (car != null)
-                                    {
-                                        Console.WriteLine("Your car is now parked.");
-                                    }
-                                    
+                                    if (!garage.ParkVehicle(regNr, "car"))
+                                        Console.WriteLine("{0} was not parked.", regNr);
+                                    else
+                                        Console.WriteLine("Your motorcycle with registration {0} is now parked.", regNr);
+
                                     break;
                                 case 3:
                                     Console.WriteLine("You are parking a bus!/n");
@@ -62,22 +66,12 @@ namespace GarageSystem
                                     regNr = Console.ReadLine();
                                     garage.ParkVehicle(regNr, "bus");
                                    
-                                    if (car != null)
-                                    {
-                                        Console.WriteLine("Your bus is now parked.");
-                                    }
-
                                     break;
                                 case 4:
                                     Console.WriteLine("You are parking a truck!/n");
                                     Console.WriteLine("Please type Regestration number?/n");
                                     regNr = Console.ReadLine();
                                     garage.ParkVehicle(regNr, "Truck");
-
-                                    if (car != null)
-                                    {
-                                        Console.WriteLine("Your truck is now parked.");
-                                    }
 
                                     break;
                                 case 5:
@@ -99,37 +93,9 @@ namespace GarageSystem
                     case 2:
                         Console.WriteLine("You want to unpark a vehicle/n");
                         Console.WriteLine("Please type regestration number?/n");
-                        string regNr = Console.ReadLine();
-                        garage.ParkVehicle(regNr, "Truck");
-
-                        if (car != null)
-                        {
-                            Console.WriteLine("Your truck is now parked.");
-                        }
-
-                        // Show unpark menu
-                        /*do
-                        {
-                            Menu.ShowUnparkMenu();
-                            Console.Write("$: ");
-                            choice = Menu.GetSearchMenuChoice();
-
-                            switch(choice)
-                            {
-                                case 1:
-                                    
-                                    break;
-                                case 2:
-                                    
-                                    break;
-                                case 0:
-                                    Console.Clear();
-                                    showSubMenu = false;
-                                    break;
-                                default:
-                                    break;
-                            }
-                        } while (showSubMenu != false);*/
+                        regNr = Console.ReadLine();
+                        Console.WriteLine(garage.GetVehicleInfo(regNr));
+                        Console.ReadKey();
                         break; // Search unpark menu end
                     case 3:
                         do
@@ -141,36 +107,39 @@ namespace GarageSystem
                             switch(choice)
                             {
                                 case 1:
-
+                                    //See basic information for all vehicles
+                                    foreach (string v in garage.GetGarageInfo())
+                                    {
+                                        Console.WriteLine(v);
+                                        
+                                    }
                                     break;
                                 case 2:
-
+                                    //See Information about specefic vehicle
                                     break;
                                 case 3:
+                                    //Search for specific vehicle
                                     Console.WriteLine("You want to serch after a vehicle /n");
                                     Console.WriteLine("Please type regestration number?/n");
                                     regNr = Console.ReadLine();
 
-                                    foreach (Book.Book b in GarageLogic.())
-                                    {
-                                        Console.WriteLine(b.Title);
+                                    //foreach (Book.Book b in GarageLogic.())
+                                    //{
+                                    //    Console.WriteLine(b.Title);
 
-                                    }
+                                    //}
                                     break;
                                 case 4:
+                                    //Search for vehicle by type 
 
                                     break;
                                 case 5:
-                                    Console.WriteLine("You want to unpark a vehicle/n");
+                                    // Search for vehicle by date parked
+ 
+                                     Console.WriteLine("You want to unpark a vehicle/n");
                                     Console.WriteLine("Please type regestration number?/n");
                                     regNr = Console.ReadLine();
                                         
-                                    foreach (Vehicle.ve v in GarageLogic.fin())
-                                    {
-                                        Console.WriteLine(v.Title);
-
-                                    }
-
                                     break;
                                 case 0:
                                     Console.Clear();
