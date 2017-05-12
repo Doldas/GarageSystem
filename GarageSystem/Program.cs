@@ -56,8 +56,7 @@ namespace GarageSystem
                                     Console.WriteLine("You are parking a car!");
                                     Console.Write("Please type registration number: ");
                                     regNr = Console.ReadLine();
-                                    garage.ParkVehicle(regNr, "car");
-
+                                   
                                     if (!garage.ParkVehicle(regNr, "car"))
                                         Console.WriteLine("{0} was not parked.", regNr);
                                     else
@@ -68,8 +67,7 @@ namespace GarageSystem
                                     Console.WriteLine("You are parking a bus!");
                                     Console.Write("Please type registration number: ");
                                     regNr = Console.ReadLine();
-                                    garage.ParkVehicle(regNr, "bus");
-                                   
+
                                     if (!garage.ParkVehicle(regNr, "bus"))
                                         Console.WriteLine("{0} was not parked.", regNr);
                                     else
@@ -80,7 +78,6 @@ namespace GarageSystem
                                     Console.WriteLine("You are parking a truck!");
                                     Console.Write("Please type registration number: ");
                                     regNr = Console.ReadLine();
-                                    garage.ParkVehicle(regNr, "Truck");
 
                                     if (!garage.ParkVehicle(regNr, "truck"))
                                         Console.WriteLine("{0} was not parked.", regNr);
