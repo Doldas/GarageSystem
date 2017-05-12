@@ -25,7 +25,8 @@ namespace GarageSystem
         {
             bool result = false;
 
-            if(regNr.Length != 6)
+            // If registration number is empty or not 6 characters
+            if(regNr.Length != 6 || regNr.Length == 0)
                 return result;
 
             vehicleType = vehicleType.ToLower();
