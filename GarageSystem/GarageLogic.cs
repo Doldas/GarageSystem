@@ -67,7 +67,7 @@ namespace GarageSystem
         }
 
         /// <summary>
-        /// Find multiple  vehicles matching given type.
+        /// Find multiple vehicles matching given type.
         /// </summary>
         /// <param name="type">Type of vehicle.</param>
         /// <returns>List of vehicles found, null if no match.</returns>
