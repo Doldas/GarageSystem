@@ -7,7 +7,15 @@ namespace GarageSystem
         static void Main(string[] args)
         {
             GarageLogic garage = new GarageLogic();
-  
+            
+            garage.ParkVehicle("123abc", "car");
+            garage.ParkVehicle("456def", "mc");
+            garage.ParkVehicle("321cba", "truck");
+            garage.ParkVehicle("654fed", "bus");
+            
+    
+
+
             bool showMainMenu = true;
             // Main menu
             do
