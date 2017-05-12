@@ -7,7 +7,6 @@ namespace GarageSystem
     {
 
         #region Property
-        public string model { set; get; } //Car model
         #endregion
 
         #region Constructor

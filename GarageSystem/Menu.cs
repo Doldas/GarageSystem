@@ -31,7 +31,6 @@ namespace GarageSystem
             Console.WriteLine("2) Park a car");
             Console.WriteLine("3) Park a bus");
             Console.WriteLine("4) Park a truck");
-            Console.WriteLine("5) Park a horse-and-buggy ");
             Console.WriteLine("0) Back to Main");
         }
 
