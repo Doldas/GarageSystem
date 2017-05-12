@@ -8,15 +8,24 @@ namespace GarageSystem
 {
     class GarageLogic
     {
+        #region Values
+        // Size of garage.
         private const int parkingLots = 100;
+        // Instance of garage = a new garage.
         Garage garage = new Garage();
+        #endregion
 
-        public Vehicle ParkVehicle(string regNr, DateTime dateTime)
+        #region Methods
+        /// <summary>
+        /// Adds a vehicle to the garage.
+        /// </summary>
+        /// <param name="regNr">Registration number for the vehicle to park.</param>
+        /// <returns>Parked vehicle object.</returns>
+        public Vehicle ParkVehicle(string regNr)
         {
             Vehicle vehicle = new Vehicle();
 
             vehicle.RegNumber = regNr;
-            vehicle.ParkingDate = dateTime;
 
             if(vehicle != null && garage.Veichles.Count < parkingLots)
             {
@@ -27,6 +36,11 @@ namespace GarageSystem
             return vehicle;
         }
 
+        /// <summary>
+        /// Remove a vehicle from the garage.
+        /// </summary>
+        /// <param name="regNr">Registration number for the vehicle to unpark.</param>
+        /// <returns>Unparked vehicle object.</returns>
         public Vehicle UnParkVehicle(string regNr)
         {
             Vehicle vehicle = garage.Veichles.FirstOrDefault(v => v.RegNumber == regNr);
@@ -40,6 +54,11 @@ namespace GarageSystem
             return vehicle;
         }
 
+        /// <summary>
+        /// Find a vehicle with a given registration number.
+        /// </summary>
+        /// <param name="regNr">Registration number for the vehicle to lookup.</param>
+        /// <returns>Vehicle object if found, null if no match.</returns>
         public Vehicle FindVehicleByRegNr(string regNr)
         {
             Vehicle vehicle = garage.Veichles.FirstOrDefault(v => v.RegNumber == regNr);
@@ -47,6 +66,11 @@ namespace GarageSystem
             return vehicle;
         }
 
+        /// <summary>
+        /// Find multiple  vehicles matching given type.
+        /// </summary>
+        /// <param name="type">Type of vehicle.</param>
+        /// <returns>List of vehicles found, null if no match.</returns>
         public List<Vehicle> FindMultipleVehiclesByType(string type)
         {
             List<Vehicle> vehicles = (from v in garage.Veichles
@@ -56,6 +80,11 @@ namespace GarageSystem
             return vehicles;
         }
 
+        /// <summary>
+        /// Find multiple vehicles parked a given date.
+        /// </summary>
+        /// <param name="parkedDate">Date parked to search for.</param>
+        /// <returns>List of vehicles found, null if no match.</returns>
         public List<Vehicle> FindMultipleVehiclesByDate(string parkedDate)
         {
             List<Vehicle> vehicles = (from v in garage.Veichles
@@ -65,6 +94,11 @@ namespace GarageSystem
             return vehicles;
         }
 
+        /// <summary>
+        /// Get info about a specific vehicle.
+        /// </summary>
+        /// <param name="regNr">Registration number for the vehicle to lookup.</param>
+        /// <returns>String of vehicle info.</returns>
         public string GetVehicleInfo(string regNr)
         {
             Vehicle vehicle = garage.Veichles.FirstOrDefault(v => v.RegNumber == regNr);
@@ -74,5 +108,31 @@ namespace GarageSystem
 
             return string.Format("{0,-10}{1,-10}{2,10}", vehicle.RegNumber, vehicle.ParkingDate, currentBill);
         }
+
+        /// <summary>
+        /// Get info of all vehicles in the garage.
+        /// </summary>
+        /// <returns>List of formatted strings with vehicle info.</returns>
+        public List<string> GetGarageInfo()
+        {
+            List<string> vehicles = new List<string>();
+
+            foreach(Vehicle v in garage.Veichles)
+            {
+                vehicles.Add(string.Format("{0,-10}{1,-10}", v.RegNumber, v.ParkingDate));
+            }
+
+            return vehicles;
+        }
+
+        /// <summary>
+        /// Get info about number of occupied lots in the garage.
+        /// </summary>
+        /// <returns>Formatted string with lot statistics.</returns>
+        public string GetLotStats()
+        {
+            return string.Format("Occupied lots: {0}/{1}: ", parkingLots, garage.Veichles.Count);
+        }
+        #endregion
     }
 }
