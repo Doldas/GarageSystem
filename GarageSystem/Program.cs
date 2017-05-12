@@ -6,6 +6,7 @@ namespace GarageSystem
     {
         static void Main(string[] args)
         {
+            GarageLogic garage = new GarageLogic();
             bool showMainMenu = true;
 
             // Main menu
