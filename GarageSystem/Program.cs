@@ -8,7 +8,7 @@ namespace GarageSystem
         {
             bool showMainMenu = true;
             // Main menu
-            while(true)
+            do
             {
                 Console.Clear();
                 Menu.ShowMenu();
@@ -31,13 +31,13 @@ namespace GarageSystem
                             switch (choice)
                             {
                                 case 1:
-                                    
+
                                     break;
                                 case 2:
-                                    
+
                                     break;
                                 case 3:
-                                   
+
                                     Console.WriteLine("Error code #9223");
                                     Console.WriteLine("Error code description:");
                                     Console.WriteLine("This is to enivormently-friendly.");
@@ -64,10 +64,10 @@ namespace GarageSystem
                             switch (choice)
                             {
                                 case 1:
-                                    
+
                                     break;
                                 case 2:
-                                    
+
                                     break;
                                 case 0:
                                     Console.Clear();
@@ -119,7 +119,7 @@ namespace GarageSystem
                     default:
                         break;
                 }
-            }
+            } while (!showMainMenu == false);
         }
     }
 }
