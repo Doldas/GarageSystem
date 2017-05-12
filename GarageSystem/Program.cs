@@ -7,10 +7,10 @@ namespace GarageSystem
         static void Main(string[] args)
         {
             bool showMainMenu = true;
-
             // Main menu
-            do
+            while(true)
             {
+                Console.Clear();
                 Menu.ShowMenu();
                 Console.Write("Value $: ");
                 int choice = Menu.GetMainMenuChoice();
@@ -117,7 +117,7 @@ namespace GarageSystem
                     default:
                         break;
                 }
-            } while (showMainMenu != false);
+            }
         }
     }
 }
