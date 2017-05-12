@@ -13,9 +13,6 @@ namespace GarageSystem
             garage.ParkVehicle("321cba", "truck");
             garage.ParkVehicle("654fed", "bus");
             
-    
-
-
             bool showMainMenu = true;
             // Main menu
             do
@@ -65,7 +62,7 @@ namespace GarageSystem
                                         Console.WriteLine("{0} was not parked.", regNr);
                                     else
                                         Console.WriteLine("Your car with registration {0} is now parked.", regNr);
-
+                                    
                                     break;
                                 case 3:
                                     Console.WriteLine("You are parking a bus!/n");
@@ -172,9 +169,10 @@ namespace GarageSystem
                                     foreach (Vehicle v in garage.FindMultipleVehiclesByDate(parkedDate))
                                     {
                                         Console.WriteLine(v);
-
-                                    };
-
+ 
+                                    foreach(Vehicle v in garage.FindMultipleVehiclesByDate(day))
+                                        Console.WriteLine(v);
+                                        
                                     Console.ReadKey();
                                     break;
                                 case 0:

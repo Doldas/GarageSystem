@@ -36,7 +36,7 @@ namespace GarageSystem
                 case "car":
                     Car car = new Car();
                     car.RegNumber = regNr;
-                    if(car != null && garage.Veichles.Count < parkingLots)
+                    if(car != null && garage.Veichles.Count < parkingLots && !garage.Veichles.Exists(v => v.RegNumber == regNr))
                     {
                         garage.ParkVehicle(car);
                         result = true;
@@ -45,7 +45,7 @@ namespace GarageSystem
                 case "mc":
                     Motorcycle mc = new Motorcycle();
                     mc.RegNumber = regNr;
-                    if(mc != null && garage.Veichles.Count < parkingLots)
+                    if(mc != null && garage.Veichles.Count < parkingLots && !garage.Veichles.Exists(v => v.RegNumber == regNr))
                     {
                         garage.ParkVehicle(mc);
                         result = true;
@@ -54,7 +54,7 @@ namespace GarageSystem
                 case "bus":
                     Bus bus = new Bus();
                     bus.RegNumber = regNr;
-                    if(bus != null && garage.Veichles.Count < parkingLots)
+                    if(bus != null && garage.Veichles.Count < parkingLots && !garage.Veichles.Exists(v => v.RegNumber == regNr))
                     {
                         garage.ParkVehicle(bus);
                         result = true;
@@ -63,7 +63,7 @@ namespace GarageSystem
                 case "truck":
                     Truck truck = new Truck();
                     truck.RegNumber = regNr;
-                    if(truck != null && garage.Veichles.Count < parkingLots)
+                    if(truck != null && garage.Veichles.Count < parkingLots && !garage.Veichles.Exists(v => v.RegNumber == regNr))
                     {
                         garage.ParkVehicle(truck);
                         result = true;
@@ -116,7 +116,7 @@ namespace GarageSystem
         public List<Vehicle> FindMultipleVehiclesByType(string type)
         {
             List<Vehicle> vehicles = (from v in garage.Veichles
-                                      where v.GetObjectType() == type
+                                      where v.GetObjectType().ToLower() == type
                                       select v).ToList();
 
             return vehicles;
@@ -130,7 +130,7 @@ namespace GarageSystem
         public List<Vehicle> FindMultipleVehiclesByDate(string parkedDate)
         {
             List<Vehicle> vehicles = (from v in garage.Veichles
-                                     where v.ParkingDate.ToString() == parkedDate
+                                     where v.ParkingDate.Day.ToString() == parkedDate
                                      select v).ToList();
 
             return vehicles;
@@ -161,7 +161,7 @@ namespace GarageSystem
 
             foreach(Vehicle v in garage.Veichles)
             {
-                vehicles.Add(string.Format("{0,-10}{1,-10}", v.RegNumber, v.ParkingDate));
+                vehicles.Add(string.Format("{0,-10}{1,-10}", v.RegNumber, (v.ParkingDate.ToShortDateString() + " " + v.ParkingDate.ToShortTimeString())));
             }
 
             return vehicles;
