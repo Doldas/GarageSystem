@@ -36,16 +36,6 @@ namespace GarageSystem
         }
 
         /// <summary>
-        /// List items unpark menu.
-        /// </summary>
-        /* internal static void ShowUnparkMenu()
-         {
-             Console.WriteLine("### Unpark vehicle ###");
-             Console.WriteLine("1) Unpark small vehicle");
-             //Console.WriteLine("2) Unpark large vehicle");
-             Console.WriteLine("0) Back to Main");
-         }*/
-        /// <summary>
         /// Search item in admin  menu.
         /// </summary>
         internal static void ShowAdminMenu()
@@ -54,8 +44,8 @@ namespace GarageSystem
             Console.WriteLine("1) See basic information for all vehicles");
             Console.WriteLine("2) See Information about specefic vehicle");
             Console.WriteLine("3) Search for specific vehicle");
-            Console.WriteLine("4) Search for vehicle by type   ");
-            Console.WriteLine("5) Search for vehicle by date parked");
+            Console.WriteLine("4) Search for vehicles by type   ");
+            Console.WriteLine("5) Search for vehicles by date parked");
             Console.WriteLine("0) Back to Main");
         }
 
@@ -75,12 +65,6 @@ namespace GarageSystem
             {
                 Console.WriteLine("Please enter a valid choice.");
             }
-            /* Returns 0 if false - 0=Exit = Problem
-            if (!int.TryParse(input, out choice) && choice < 0 || choice > 4)
-            {
-                Console.WriteLine("Please enter a valid choice.\n");
-            }
-             * */
             return choice;
         }
 
@@ -108,7 +92,7 @@ namespace GarageSystem
         /// Handle user input for Search menu.
         /// </summary>
         /// <returns></returns>
-        internal static int GetSearchMenuChoice()
+        internal static int GetAdminMenuChoice()
         {
             string input = Console.ReadLine();
             int choice = -1;
@@ -125,15 +109,9 @@ namespace GarageSystem
         }
 
         /// <summary>
-        /// Print product header.
+        /// Display the park menu.
         /// </summary>
-        /* internal static void PrintHeader()
-         {
-             Console.WriteLine(string.Format("{0,-6}{1,-20}{2,-12}{3,-13}{4,-10}",
-                                             "Part#", "Name", "Category", "Price", "Amount"));
-             Console.WriteLine("---------------------------------------------------------");
-         }*/
-
+        /// <returns></returns>
         internal static int GetParkMenuChoice()
         {
             string input = Console.ReadLine();
@@ -156,6 +134,15 @@ namespace GarageSystem
             }
 
             return choice;
+        }
+        
+        /// <summary>
+        /// Print header with labels.
+        /// </summary>
+        internal static void PrintHeader()
+        {
+            Console.WriteLine(string.Format("{0,-10}{1,-10}{2,10}", "Type", "Reg #", "Parked Date"));
+            Console.WriteLine("---------------------------------------");
         }
     }
 }

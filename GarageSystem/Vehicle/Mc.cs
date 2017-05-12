@@ -2,11 +2,11 @@
 
 namespace GarageSystem
 {
-    class Motorcycle : Vehicle
+    class Mc : Vehicle
     {
 
         #region Constructor
-        public Motorcycle()
+        public Mc()
         {
             ParkingPrice = 25; //Default price for a Motorcycle
         }

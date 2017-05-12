@@ -7,32 +7,32 @@ namespace GarageSystem
     {
 
         #region Properties
-        public string RegNumber { set; get; } //This value should always be unique
-        public decimal ParkingPrice { set; get; } //Price for parking
-        public DateTime ParkingDate { set; get; } //Date variable for Parking
+        public string RegNumber { set; get; }
+        public decimal ParkingPrice { set; get; }
+        public DateTime ParkingDate { set; get; }
         #endregion
             
         #region Constructor
-        public Vehicle()//Constructor
+        public Vehicle()
         {
-            ParkingDate = DateTime.Now; //Setting the ParkingDate to the date on the system
+            ParkingDate = DateTime.Now;
         }
         #endregion
 
         #region Methods
-        public string GetObjectType() //Returns the object type so that we can get what type the Vehicle is
+        public string GetObjectType()
         {
             return this.GetType().ToString().Remove(0,13);
         }
         
-        public bool Equals(Vehicle other) //Equals - check if an instance of Vehicle is the same as this instance
+        public bool Equals(Vehicle other)
         {
             if (other == null) return false;
             if (this.RegNumber == other.RegNumber) return true;
             else return false;
         }
         
-        public override bool Equals(object obj) //Equals - Check if an object is same type as Vehicle
+        public override bool Equals(object obj)
         {
             if (obj == null) return false;
 
@@ -40,7 +40,7 @@ namespace GarageSystem
             if (vehicleObject == null) return false;
             else return Equals(vehicleObject);
         }
-        public override int GetHashCode() //Return the HashCode from RegNumber
+        public override int GetHashCode()
         {
             return this.RegNumber.GetHashCode();
         }
@@ -49,7 +49,7 @@ namespace GarageSystem
         #region Overrides
         public override string ToString()
         {
-            return string.Format("{0,-10}{1,-10}", RegNumber, ParkingDate);
+            return string.Format("{0,-10}{1,-10}{2,-10}", GetObjectType(), RegNumber, ParkingDate);
         }
         #endregion
     }

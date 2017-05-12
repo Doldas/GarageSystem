@@ -7,12 +7,16 @@ namespace GarageSystem
         static void Main(string[] args)
         {
             GarageLogic garage = new GarageLogic();
-            
-            garage.ParkVehicle("123abc", "car");
-            garage.ParkVehicle("456def", "mc");
-            garage.ParkVehicle("321cba", "truck");
-            garage.ParkVehicle("654fed", "bus");
-            
+
+            garage.ParkVehicle("abc123", "car");
+            garage.ParkVehicle("gtk765", "car");
+            garage.ParkVehicle("def456", "mc");
+            garage.ParkVehicle("qrt908", "mc");
+            garage.ParkVehicle("cba321", "truck");
+            garage.ParkVehicle("vgt104", "truck");
+            garage.ParkVehicle("fed654", "bus");
+            garage.ParkVehicle("klr887", "bus");
+
             bool showMainMenu = true;
             // Main menu
             do
@@ -42,22 +46,18 @@ namespace GarageSystem
                                     Console.Write("Please type registration number: ");
                                     regNr = Console.ReadLine();
 
-                                    if (!garage.ParkVehicle(regNr, "mc"))
+                                    if(!garage.ParkVehicle(regNr, "mc"))
                                         Console.WriteLine("Vehicle was not parked.");
                                     else
                                         Console.WriteLine("Your motorcycle with registration {0} is now parked.", regNr);
-                                    
-                                    // Debug
-                                    //foreach (string v in garage.GetGarageInfo())
-                                    //    Console.WriteLine(v);
-                                    //Console.ReadKey();
+                                    Console.WriteLine();
                                     break;
                                 case 2:
                                     Console.WriteLine("You are parking a car!");
                                     Console.Write("Please type registration number: ");
                                     regNr = Console.ReadLine();
-                                   
-                                    if (!garage.ParkVehicle(regNr, "car"))
+
+                                    if(!garage.ParkVehicle(regNr, "car"))
                                         Console.WriteLine("{0} was not parked.", regNr);
                                     else
                                         Console.WriteLine("Your car with registration {0} is now parked.", regNr);
@@ -68,7 +68,7 @@ namespace GarageSystem
                                     Console.Write("Please type registration number: ");
                                     regNr = Console.ReadLine();
 
-                                    if (!garage.ParkVehicle(regNr, "bus"))
+                                    if(!garage.ParkVehicle(regNr, "bus"))
                                         Console.WriteLine("{0} was not parked.", regNr);
                                     else
                                         Console.WriteLine("Your bus with registration {0} is now parked.", regNr);
@@ -79,7 +79,7 @@ namespace GarageSystem
                                     Console.Write("Please type registration number: ");
                                     regNr = Console.ReadLine();
 
-                                    if (!garage.ParkVehicle(regNr, "truck"))
+                                    if(!garage.ParkVehicle(regNr, "truck"))
                                         Console.WriteLine("{0} was not parked.", regNr);
                                     else
                                         Console.WriteLine("Your truck with registration {0} is now parked.", regNr);
@@ -98,56 +98,75 @@ namespace GarageSystem
                                 default:
                                     break;
                             }
-                        } while (showSubMenu != false);
+                        } while(showSubMenu != false);
                         break; // List park menu end
                     case 2:
                         Console.WriteLine("Unpark vehicle.");
                         Console.Write("Please type registration number: ");
                         regNr = Console.ReadLine();
                         Console.WriteLine();
-                        break; 
+                        
+                        Menu.PrintHeader();
+                        Console.WriteLine(garage.GetVehicleInfo(regNr));
+                        Console.WriteLine();
+                        if(garage.UnParkVehicle(regNr))
+                        {
+                            Console.WriteLine("Vehicle unparked");
+                            Console.WriteLine();
+                        }
+                        else
+                            Console.WriteLine("Not found.");
+                        break;
                     case 3:
                         do
                         {
                             Menu.ShowAdminMenu();
                             Console.Write("$: ");
-                            choice = Menu.GetSearchMenuChoice();
+                            choice = Menu.GetAdminMenuChoice();
+                            Console.WriteLine();
 
                             switch(choice)
                             {
                                 case 1:
                                     //See basic information for all vehicles
-
-                                    foreach (string v in garage.GetGarageInfo())
+                                    Menu.PrintHeader();
+                                    foreach(string v in garage.GetGarageInfo())
                                     {
                                         Console.WriteLine(v);
                                     }
                                     Console.WriteLine();
-
                                     break;
                                 case 2:
                                     //See Information about specefic vehicle
-                                    Console.WriteLine("Search vehicle.");
+                                    Console.WriteLine("See information about specific vehicle.");
                                     Console.Write("Please type registration number: ");
                                     regNr = Console.ReadLine();
+                                    Console.WriteLine();
+
+                                    Menu.PrintHeader();
                                     Console.WriteLine(garage.GetVehicleInfo(regNr));
                                     Console.WriteLine();
                                     break;
                                 case 3:
                                     //Search for specific vehicle
-                                    Console.WriteLine("You want to search after a vehicle.");
+                                    Console.WriteLine("Search specific vehicle.");
                                     Console.Write("Please type registration number: ");
                                     regNr = Console.ReadLine();
+                                    Console.WriteLine();
+                                    
+                                    Menu.PrintHeader();
                                     Console.WriteLine(garage.GetVehicleInfo(regNr));
-                                    Console.ReadKey();
+                                    Console.WriteLine();
                                     break;
                                 case 4:
                                     //Search for vehicle by type 
                                     Console.WriteLine("Search vehicle by type 'car', 'mc', 'bus' or 'truck'");
                                     Console.Write("Please enter type: ");
                                     string type = Console.ReadLine();
+                                    Console.WriteLine();
 
-                                    foreach (Vehicle v in garage.FindMultipleVehiclesByType(type))
+                                    Menu.PrintHeader();
+                                    foreach(Vehicle v in garage.FindMultipleVehiclesByType(type))
                                     {
                                         Console.WriteLine(v);
                                     }
@@ -155,10 +174,12 @@ namespace GarageSystem
                                     break;
                                 case 5:
                                     // Search for vehicle by date parked
-                                    Console.WriteLine("You want to search after a vehicle by date.");
-                                    Console.Write("Please type a date: ");
+                                    Console.WriteLine("Search for vehicle by numerical day parked (Ex. 12)");
+                                    Console.Write("Please enter day: ");
                                     string parkedDate = Console.ReadLine();
+                                    Console.WriteLine();
 
+                                    Menu.PrintHeader();
                                     foreach(Vehicle v in garage.FindMultipleVehiclesByDate(parkedDate))
                                     {
                                         Console.WriteLine(v);

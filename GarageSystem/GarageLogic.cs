@@ -43,7 +43,7 @@ namespace GarageSystem
                     }
                     break;
                 case "mc":
-                    Motorcycle mc = new Motorcycle();
+                    Mc mc = new Mc();
                     mc.RegNumber = regNr;
                     if(mc != null && garage.Veichles.Count < parkingLots && !garage.Veichles.Exists(v => v.RegNumber == regNr))
                     {
@@ -103,9 +103,13 @@ namespace GarageSystem
         /// <returns>Vehicle object if found, null if no match.</returns>
         public Vehicle FindVehicleByRegNr(string regNr)
         {
-            Vehicle vehicle = garage.Veichles.FirstOrDefault(v => v.RegNumber == regNr);
+            if(regNr.Length > 0)
+            {
+                Vehicle vehicle = garage.Veichles.FirstOrDefault(v => v.RegNumber == regNr);
+                return vehicle;
+            }
 
-            return vehicle;
+            return null;
         }
 
         /// <summary>
@@ -145,10 +149,14 @@ namespace GarageSystem
         {
             Vehicle vehicle = garage.Veichles.FirstOrDefault(v => v.RegNumber == regNr);
 
-            TimeSpan tspan = DateTime.Now - vehicle.ParkingDate;
-            decimal currentBill = tspan.Minutes * vehicle.ParkingPrice;
+            if(vehicle != null)
+            {
+                TimeSpan tspan = DateTime.Now - vehicle.ParkingDate;
+                decimal currentBill = tspan.Minutes * vehicle.ParkingPrice;
+                return string.Format("{0,-10}{1,-10}{2,-20}{3,-10}", vehicle.GetObjectType(), vehicle.RegNumber, vehicle.ParkingDate, currentBill);
+            }
 
-            return string.Format("{0,-10}{1,-10}{2,10}", vehicle.RegNumber, vehicle.ParkingDate, currentBill);
+            return "Not found.";
         }
 
         /// <summary>
@@ -161,7 +169,7 @@ namespace GarageSystem
 
             foreach(Vehicle v in garage.Veichles)
             {
-                vehicles.Add(string.Format("{0,-10}{1,-10}", v.RegNumber, (v.ParkingDate.ToShortDateString() + " " + v.ParkingDate.ToShortTimeString())));
+                vehicles.Add(string.Format("{0,-10}{1,-10}{2,-10}", v.GetObjectType(), v.RegNumber, (v.ParkingDate.ToShortDateString() + " " + v.ParkingDate.ToShortTimeString())));
             }
 
             return vehicles;
