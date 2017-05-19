@@ -4,3 +4,12 @@
     margin:           0;
     padding:          0;
 }
+.Wrapbox
+{
+    position:          relative;
+    margin-top:        0%;
+    margin-left:       0%;
+    width:             100%;
+    height:            100%;
+    background-color:  red;
+}
