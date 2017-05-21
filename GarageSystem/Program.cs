@@ -18,10 +18,12 @@ namespace GarageSystem
             garage.ParkVehicle("klr887", "bus");
 
             bool showMainMenu = true;
+            bool checkedIn = false;
+            string rNSaved="";
             // Main menu
             do
             {
-                Menu.ShowMenu();
+                Menu.ShowMenu(checkedIn);
                 Console.Write("$: ");
                 int choice = Menu.GetMainMenuChoice();
                 Console.WriteLine();
@@ -32,71 +34,126 @@ namespace GarageSystem
                 switch(choice)
                 {
                     case 1:
+                    
                         // Show Park menu
                         do
                         {
-                            Menu.ShowParkMenu();
-                            Console.Write("$: ");
-                            choice = Menu.GetParkMenuChoice();
-
-                            switch(choice)
+                            if (checkedIn == false)
                             {
-                                case 1:
-                                    Console.WriteLine("You are parking a motorcycle!");
-                                    Console.Write("Please type registration number: ");
-                                    regNr = Console.ReadLine();
+                                Menu.ShowParkMenu();
+                                Console.Write("$: ");
+                                choice = Menu.GetParkMenuChoice();
 
-                                    if(!garage.ParkVehicle(regNr, "mc"))
-                                        Console.WriteLine("Vehicle was not parked.");
-                                    else
-                                        Console.WriteLine("Your motorcycle with registration {0} is now parked.", regNr);
-                                    Console.WriteLine();
-                                    break;
-                                case 2:
-                                    Console.WriteLine("You are parking a car!");
-                                    Console.Write("Please type registration number: ");
-                                    regNr = Console.ReadLine();
+                                switch (choice)
+                                {
+                                    case 1:
+                                        Console.WriteLine("You are parking a motorcycle!");
+                                        Console.Write("Please type registration number: ");
+                                        regNr = Console.ReadLine();
+                                        rNSaved = regNr;
+                                        if (!garage.ParkVehicle(regNr, "mc"))
+                                            Console.WriteLine("Vehicle was not parked.");
+                                        else
+                                        {
+                                            Console.WriteLine("Your motorcycle with registration {0} is now parked.", regNr);
+                                            rNSaved = regNr;
+                                            checkedIn = true;
+                                        }
+                                        Console.WriteLine();
+                                        showSubMenu = false;
+                                        break;
+                                    case 2:
+                                        Console.WriteLine("You are parking a car!");
+                                        Console.Write("Please type registration number: ");
+                                        regNr = Console.ReadLine();
+                                        rNSaved = regNr;
 
-                                    if(!garage.ParkVehicle(regNr, "car"))
-                                        Console.WriteLine("{0} was not parked.", regNr);
-                                    else
-                                        Console.WriteLine("Your car with registration {0} is now parked.", regNr);
-                                    Console.WriteLine();
-                                    break;
-                                case 3:
-                                    Console.WriteLine("You are parking a bus!");
-                                    Console.Write("Please type registration number: ");
-                                    regNr = Console.ReadLine();
+                                        if (!garage.ParkVehicle(regNr, "car"))
+                                            Console.WriteLine("{0} was not parked.", regNr);
+                                        else
+                                        {
+                                            Console.WriteLine("Your car with registration {0} is now parked.", regNr);
+                                            rNSaved = regNr;
+                                            checkedIn = true;
+                                        }
+                                        Console.WriteLine();
+                                        showSubMenu = false;
+                                        break;
+                                    case 3:
+                                        Console.WriteLine("You are parking a bus!");
+                                        Console.Write("Please type registration number: ");
+                                        regNr = Console.ReadLine();
+                                        if (!garage.ParkVehicle(regNr, "bus"))
+                                            Console.WriteLine("{0} was not parked.", regNr);
+                                        else
+                                        {
+                                            Console.WriteLine("Your bus with registration {0} is now parked.", regNr);
+                                            rNSaved = regNr;
+                                            checkedIn = true;
+                                        }
+                                        Console.WriteLine(garage.GetVehicleInfo(regNr));
+                                        showSubMenu = false;
+                                        break;
+                                    case 4:
+                                        Console.WriteLine("You are parking a truck!");
+                                        Console.Write("Please type registration number: ");
+                                        regNr = Console.ReadLine();
 
-                                    if(!garage.ParkVehicle(regNr, "bus"))
-                                        Console.WriteLine("{0} was not parked.", regNr);
-                                    else
-                                        Console.WriteLine("Your bus with registration {0} is now parked.", regNr);
-                                    Console.WriteLine(garage.GetVehicleInfo(regNr));
-                                    break;
-                                case 4:
-                                    Console.WriteLine("You are parking a truck!");
-                                    Console.Write("Please type registration number: ");
-                                    regNr = Console.ReadLine();
+                                        if (!garage.ParkVehicle(regNr, "truck"))
+                                            Console.WriteLine("{0} was not parked.", regNr);
+                                        else
+                                        {
+                                            Console.WriteLine("Your truck with registration {0} is now parked.", regNr);
+                                            rNSaved = regNr;
+                                            checkedIn = true;
+                                        }
 
-                                    if(!garage.ParkVehicle(regNr, "truck"))
-                                        Console.WriteLine("{0} was not parked.", regNr);
-                                    else
-                                        Console.WriteLine("Your truck with registration {0} is now parked.", regNr);
-
-                                    break;
-                                case 5:
-                                    Console.WriteLine("Error code #9223");
-                                    Console.WriteLine("Error code description:");
-                                    Console.WriteLine("This is to enivormently-friendly.");
-                                    Console.WriteLine("And we don´t want horse shit in the garage.");
-                                    Console.ReadKey();
-                                    break;
-                                case 0:
-                                    showSubMenu = false;
-                                    break;
-                                default:
-                                    break;
+                                        showSubMenu = false;
+                                        break;
+                                    case 5:
+                                        Console.WriteLine("Error code #9223");
+                                        Console.WriteLine("Error code description:");
+                                        Console.WriteLine("This is to enivormently-friendly.");
+                                        Console.WriteLine("And we don´t want horse shit in the garage.");
+                                        Console.ReadKey();
+                                        break;
+                                    case 0:
+                                        showSubMenu = false;
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                            else if(checkedIn==true)
+                            {
+                                bool asking = true;
+                                do
+                                {
+                                    Console.WriteLine("Do you want to check out?");
+                                    Console.WriteLine("('1') Yes");
+                                    Console.WriteLine("('2') No");
+                                    switch (Console.ReadLine())
+                                    {
+                                        case "1":
+                                            asking = false;
+                                            checkedIn = false;
+                                            Menu.PrintHeader();
+                                            Console.WriteLine(garage.GetVehicleInfo(rNSaved));
+                                            Console.WriteLine();
+                                            garage.UnParkVehicle(rNSaved);
+                                            Console.WriteLine("Have a nice day!");
+                                            showSubMenu = false;
+                                            break;
+                                        case "2":
+                                            asking = false;
+                                            showSubMenu = false;
+                                            break;
+                                        default:
+                                            Console.WriteLine("Please answer with either number 1 or number 2!");
+                                            break;
+                                    }
+                                }
+                                while (asking);
                             }
                         } while(showSubMenu != false);
                         break; // List park menu end
@@ -195,8 +252,6 @@ namespace GarageSystem
                         } while(showSubMenu != false);
                         break;
                     case 0:
-                        Console.WriteLine("Press any key to exit application.");
-                        Console.ReadKey();
                         Environment.Exit(0);
                         break;
                     default:
