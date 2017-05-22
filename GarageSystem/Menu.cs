@@ -11,6 +11,8 @@ namespace GarageSystem
         /// <summary>
         /// Main menu.
         /// </summary>
+        
+
         internal static void ShowMenu()
         {
             Console.WriteLine("### Welcome to the parking space ###");
@@ -20,7 +22,20 @@ namespace GarageSystem
             Console.WriteLine("0) Exit");
         }
 
-
+        internal static void ShowMenu(bool checkedIn)
+        {
+            Console.WriteLine("### Welcome to the parking space ###");
+            if (checkedIn == false)
+            {
+                Console.WriteLine("1) Check In");
+            }
+            else
+            {
+                Console.WriteLine("1) Check Out");
+            }
+            Console.WriteLine("3) View admin");
+            Console.WriteLine("0) Exit");
+        }
         /// <summary>
         /// List items park menu.
         /// </summary>
